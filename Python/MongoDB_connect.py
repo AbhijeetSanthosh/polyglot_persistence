@@ -6,12 +6,12 @@ connection_string = "mongodb+srv://businessdarvesh:asdfghjkl123@groupr.gpmjz.mon
 try:
     # Create a MongoClient instance using the connection string
     client = MongoClient(connection_string)
-    
-    # Access your specific database
-    db = client["Polyglot_Persistense"]
-    
-    # Access the collection
-    collection = db["Streamflix"]
+    client.admin.command('ping')
+    print("Successfully connected to MongoDB Atlas!")
+
+    db = client["streamflix"]
+    viewing_logs = db["ViewingLogs"]
+    top_content = db["TopContent"]
     
     # Use the 'ping' command to verify connection
     client.admin.command('ping')
